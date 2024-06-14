@@ -24,8 +24,8 @@ int main() {
     srand(time(NULL));
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            a[i][j] = rand() % 987654; //change the value to change the range and the size of the matrix
-            b[i][j] = rand() % 987654; //change the value to change the range and the size of the matrix
+            a[i][j] = rand() % 10001; //change the value to change the range and the size of the matrix
+            b[i][j] = rand() % 10001; //change the value to change the range and the size of the matrix
 
             // Uncomment the following lines to generate random floating-point values
             // a[i][j] = ((double)rand() / RAND_MAX) * 100000.0; // Random floating-point values between 0 and 100000
