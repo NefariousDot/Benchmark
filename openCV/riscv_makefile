@@ -1,0 +1,29 @@
+# THIS MAKE FILE IS TO COMPILE FOR RISCV64 ARCHITECTURE
+# YOU CAN REFER THE SITE "https://pranavnatekar.medium.com/cross-compile-opencv-for-risc-v-460305012adb" 
+# FOR CROSS COMPLIE OPEN CV FOR RISCV
+
+
+GXX = riscv64-buildroot-linux-gnu-g++
+#GXX = g++
+
+CFLAGS	= -I <<INSTALL_DIR>>/include -Ofast `pkg-config --cflags --libs <<PATH TO opencv.pc>>` -static -L <<INSTALL_DIR>>/lib -lopencv_dnn -lopencv_core -lopencv_imgproc -llibtiff -llibjpeg-turbo -llibjasper  -llibwebp -lIlmImf -lpthread -lzlib -lwebp -lprotobuf
+# NOTE : <<PATH TO opencv.pc>> --> absolute path of opencv.pc file was having problem in my machine
+# attching the CFLAGS I've used below
+#CFLAGS = -I /home/athmaram/MDP/Board_Bring_Ups/BenchMarks/openCV/opencv-ima/install/include -Ofast `pkg-config --cflags --libs ../openCV/opencv-ima/install/lib/pkgconfig/opencv.pc` -L /home/athmaram/MDP/Board_Bring_Ups/BenchMarks/openCV/opencv-ima/3rdparty/lib -L /home/athmaram/MDP/Board_Bring_Ups/BenchMarks/openCV/opencv-ima/lib -ldl -lopencv_dnn -lopencv_core -lopencv_imgproc -llibtiff -llibjpeg-turbo -llibjasper  -llibwebp -lIlmImf -lpthread -lzlib  -llibwebp -llibprotobuf -static
+
+all : riscv
+
+riscv : 
+	$(GXX) morphologyOperations.cpp -o morphology.riscv $(CFLAGS)
+	$(GXX) outOfFocusDeblur.cpp -o outOfFocusDeblur.riscv $(CFLAGS)
+	$(GXX) threshold.cpp -o threshold.riscv $(CFLAGS) 
+	$(GXX) line_detectors.cpp -o line_detectors.riscv $(CFLAGS)
+
+	#riscv64-buildroot-linux-gnu-strip -s *.riscv
+	
+	mkdir -p build	
+	mv *.riscv build/
+	 
+clean : 
+	rm -f *.riscv
+	rm -rf build
