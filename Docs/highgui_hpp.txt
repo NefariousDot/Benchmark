@@ -1,0 +1,135 @@
+The `opencv2/highgui.hpp` header in OpenCV provides functions for displaying images, 
+creating GUI windows, and handling user inputs from the keyboard and mouse. 
+If you are encountering GUI issues, you will need to identify and avoid or replace these functions in your code.
+
+Here’s a list of the main functions provided by the `highgui.hpp` header in OpenCV, including some common derivative functions:
+
+### Main Functions in `opencv2/highgui.hpp`
+
+1. **Window Management**
+    - `cv::namedWindow` - Creates a window.
+    - `cv::destroyWindow` - Destroys a specific window.
+    - `cv::destroyAllWindows` - Destroys all the windows created.
+
+2. **Displaying Images**
+    - `cv::imshow` - Displays an image in the specified window.
+
+3. **Waiting for User Input**
+    - `cv::waitKey` - Waits for a key event for a specified amount of time.
+
+4. **Trackbars**
+    - `cv::createTrackbar` - Creates a trackbar (slider) and attaches it to a window.
+    - `cv::getTrackbarPos` - Retrieves the current position of the trackbar.
+    - `cv::setTrackbarPos` - Sets the position of the trackbar.
+
+5. **Mouse Interaction**
+    - `cv::setMouseCallback` - Sets a callback function for mouse events.
+    
+6. **File Dialogs (If available)**
+    - `cv::selectROI` - Selects a region of interest (ROI) using the mouse.
+
+### Potential Replacement Strategies
+
+If you need to avoid using these GUI-related functions, you will have to find alternatives that do not rely on GUI functionality. 
+Here are some suggestions:
+
+- **Displaying Images**: Instead of using `cv::imshow`, save images to disk using `cv::imwrite` and view them using external image viewers.
+    ```cpp
+    cv::imwrite("output.jpg", image);
+    ```
+
+- **Waiting for User Input**: Remove calls to `cv::waitKey` or replace them with pauses or delays using standard C++ functions.
+    ```cpp
+    #include <chrono>
+    #include <thread>
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Pause for 1 second
+    ```
+
+- **Trackbars and Mouse Interaction**: Implement command-line input or use configuration files to pass parameters instead of interactive GUI elements.
+
+### List of Common Functions to Avoid
+
+Below is a list of functions from `opencv2/highgui.hpp` that you might need to avoid or replace:
+
+1. **Window Management**
+    ```cpp
+    cv::namedWindow("window_name", cv::WINDOW_AUTOSIZE);
+    cv::destroyWindow("window_name");
+    cv::destroyAllWindows();
+    ```
+
+2. **Displaying Images**
+    ```cpp
+    cv::imshow("window_name", image);
+    ```
+
+3. **Waiting for User Input**
+    ```cpp
+    cv::waitKey(0);
+    ```
+
+4. **Trackbars**
+    ```cpp
+    cv::createTrackbar("TrackbarName", "window_name", &value, max_value);
+    cv::getTrackbarPos("TrackbarName", "window_name");
+    cv::setTrackbarPos("TrackbarName", "window_name", position);
+    ```
+
+5. **Mouse Interaction**
+    ```cpp
+    cv::setMouseCallback("window_name", onMouseCallbackFunction, userdata);
+    ```
+
+6. **File Dialogs**
+    ```cpp
+    cv::selectROI("window_name", image, showCrosshair, fromCenter);
+    ```
+
+### Example Update to Code
+
+Here’s an example of how you might update your code to remove dependencies on the `highgui.hpp` header:
+
+**Original Code:**
+```cpp
+#include <iostream>
+#include "opencv2/imgproc.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/imgcodecs.hpp"
+
+int main() {
+    cv::Mat image = cv::imread("image.jpg");
+    if (image.empty()) {
+        std::cerr << "Could not open or find the image" << std::endl;
+        return -1;
+    }
+
+    cv::imshow("Display window", image);
+    cv::waitKey(0);
+    return 0;
+}
+```
+
+**Updated Code:**
+```cpp
+#include <iostream>
+#include "opencv2/imgproc.hpp"
+#include "opencv2/imgcodecs.hpp"
+
+int main() {
+    cv::Mat image = cv::imread("image.jpg");
+    if (image.empty()) {
+        std::cerr << "Could not open or find the image" << std::endl;
+        return -1;
+    }
+
+    // Save the image to file instead of displaying
+    cv::imwrite("output.jpg", image);
+    std::cout << "Image saved as output.jpg" << std::endl;
+
+    return 0;
+}
+```
+
+By identifying and replacing functions from `highgui.hpp`, you can update your code to avoid GUI-related issues and 
+make it suitable for environments without a graphical interface.

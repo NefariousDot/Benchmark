@@ -56,10 +56,10 @@ void Dilation(int, void*){
 
 }
 
-int main(int argc, char* argv[]){
+int main(int argc, char** argv){
 
     //Load image
-    CommandLineParser parser(argc, argv, "{@input | ../img/Morphology_1_Original_Image.png | input image}");
+    CommandLineParser parser(argc, argv, "{@input | ./img/Morphology_1_Original_Image.png | input image}");
     // CommandLineParser parser(argc, argv, "{@input | ../img/Morphology_1_Original_Image1.jpg | input image}");
     src = imread( parser.get<String>("@input"), IMREAD_COLOR );
 
