@@ -23,7 +23,7 @@ void show_wait_destroy(const char* winname, cv::Mat img) {
 int main(int argc, char** argv){
 
     //Load image
-    CommandLineParser parser(argc, argv, "{@input | ./img/morph_line_detector.png | input image}");;
+    CommandLineParser parser(argc, argv, "{@input | ./img/notes.jpg | input image}");;
     src = imread( parser.get<String>("@input"), IMREAD_COLOR );
 
     //checking image read error

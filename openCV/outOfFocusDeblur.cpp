@@ -18,7 +18,7 @@ void calcWnrFilter(const Mat& input_h_PSF, Mat& output_G, double nsr);
 
 const string keys =
     "{help h usage ? |                                         | print this message}"
-    "{@input         | ./img/out_Of_Focus_Deblur_Original.jpg | input image}"
+    "{@input         | ./img/deblur.jpg                        | input image}"
     "{R              | 5                                       | radius of Wiener filter}"
     "{SNR            | 100                                     | signal to noise ratio}"
 ;

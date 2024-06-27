@@ -30,22 +30,22 @@ void texture_Flattening(const char* source, const char* mask);
 int main(int argc, char** argv){
 
     cout << "NORMAL CLONING" << endl;
-    normalClone("./img/NC_src.png", "./img/NC_dst.png", "./img/NC_mask.png");
+    normalClone("./img/NC_src.jpg", "./img/NC_dst.jpg", "./img/NC_mask.jpg");
 
     cout << "MIXED CLONING" << endl;
-    mixedClone("./img/MC_src.png", "./img/MC_dst.png", "./img/MC_mask.png");
+    mixedClone("./img/MC_src.jpg", "./img/MC_dst.jpg", "./img/MC_mask.jpg");
 
     cout << "MONOCHROME TRANSFER" << endl;
-    monochromeTransfer("./img/MT_src.png", "./img/MT_dst.png", "./img/MT_mask.png");
+    monochromeTransfer("./img/MT_src.jpg", "./img/MT_dst.jpg", "./img/MT_mask.jpg");
 
     cout << "COLOR CHANGE" << endl;
-    color_Change("./img/CC_src.png", "./img/CC_mask.png");
+    color_Change("./img/CC_src.jpg", "./img/CC_mask.jpg");
 
     cout << "ILLUMINATION CHANGE" << endl;
-    illumination_Change("./img/IC_src.png", "./img/IC_mask.png");
+    illumination_Change("./img/IC_src.jpg", "./img/IC_mask.jpg");
 
     cout << "TEXTURE FLATTENING" << endl;
-    texture_Flattening("./img/TF_src.png", "./img/TF_mask.png");
+    texture_Flattening("./img/TF_src.jpg", "./img/TF_mask.jpg");
 
     return 0;
 }
@@ -76,7 +76,7 @@ void normalClone(const char* source, const char* destination, const char* mask){
     p.y = 100;
 
     seamlessClone(src, dst, mask_, p, result, 1);
-    imwrite("normal_clone.png", result);
+    imwrite("normal_clone.jpg", result);
     
 }
 
@@ -106,7 +106,7 @@ void mixedClone(const char* source, const char* destination, const char* mask){
     p.y = dst.size().height / 2;
 
     seamlessClone(src, dst, mask_, p, result, 2);
-    imwrite("mixed_clone.png", result);
+    imwrite("mixed_clone.jpg", result);
 }
 
 void monochromeTransfer(const char* source, const char* destination, const char* mask){
@@ -135,7 +135,7 @@ void monochromeTransfer(const char* source, const char* destination, const char*
     p.y = dst.size().height / 2;
 
     seamlessClone(src, dst, mask_, p, result, 3);
-    imwrite("monochrome_transfer.png", result);
+    imwrite("monochrome_transfer.jpg", result);
 
 
 }
@@ -156,7 +156,7 @@ void color_Change(const char* source, const char* mask){
 
     Mat result;
     colorChange(src, mask_, result, 1.5, 0.5, 0.5);
-    imwrite("color_change.png", result);
+    imwrite("color_change.jpg", result);
 
 }
 
@@ -176,7 +176,7 @@ void illumination_Change(const char* source, const char* mask){
 
     Mat result;
     illuminationChange(src, mask_, result, 0.2f, 0.4f);
-    imwrite("illumination_change.png", result);
+    imwrite("illumination_change.jpg", result);
 
 }
 
@@ -197,7 +197,7 @@ void texture_Flattening(const char* source, const char* mask){
     Mat result;
 
     textureFlattening(src, mask_, result, 30, 45, 3);
-    imwrite("texture_flattening.png", result);
+    imwrite("texture_flattening.jpg", result);
 
 
 }

@@ -47,8 +47,8 @@ static void Threshold_Demo( int, void* )
  */
 int main( int argc, char** argv )
 {
-    //! [load]
-    const char* filename = argc >=2 ? argv[1] : "./img/Threshold_Original_Image.jpg";
+    // Load an image
+    const char* filename = argc >=2 ? argv[1] : "./img/threshold.jpg";
     src = imread( filename, IMREAD_COLOR );
     if( src.empty() )
     {
@@ -59,13 +59,12 @@ int main( int argc, char** argv )
 
 
     cvtColor( src, src_gray, COLOR_BGR2GRAY ); // Convert the image to Gray
-    //! [load]
+    
 
-    //! [window]
+    
     namedWindow( window_name, WINDOW_AUTOSIZE ); // Create a window to display results
-    //! [window]
+    
 
-    //! [trackbar]
     createTrackbar( trackbar_type,
                     window_name, &threshold_type,
                     max_type, Threshold_Demo ); // Create a Trackbar to choose type of Threshold
@@ -73,11 +72,12 @@ int main( int argc, char** argv )
     createTrackbar( trackbar_value,
                     window_name, &threshold_value,
                     max_value, Threshold_Demo ); // Create a Trackbar to choose Threshold value
-    //! [trackbar]
+
 
     Threshold_Demo( 0, 0 ); // Call the function to initialize
 
     /// Wait until the user finishes the program
     waitKey();
+    
     return 0;
 }
