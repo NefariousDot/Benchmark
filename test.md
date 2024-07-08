@@ -41,10 +41,6 @@ Morphology is a set of image processing operations that process images based on 
 Line extraction involves detecting lines in an image, which is a crucial step in many computer vision applications such as feature detection and image segmentation. 
 Here we are applying the two very common morphology operators (i.e. Dilation and Erosion), with the creation of custom kernels, in order to extract straight lines on the horizontal and vertical axes.For this purpose, you will use the following OpenCV functions:
 
--   **erode()**
--   **dilate()**
--   **getStructuringElement()**
-
 -   __Dilation__: The value of the output pixel is the <b><em>maximum</em></b> value of all the pixels that fall within the structuring element's size and shape. For example in a binary image, if any of the pixels of the input image falling within the range of the kernel is set to the value 1, the corresponding pixel of the output image will be set to 1 as well. The latter applies to any type of image (e.g. grayscale, bgr, etc).
 
     ![Dilation on a Binary Image](img/morph21.gif)
