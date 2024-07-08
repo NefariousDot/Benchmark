@@ -1,4 +1,5 @@
- #Fast Fourier Transform   ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)
+ #Fast Fourier Transform
+ ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)
 
  The Fast Fourier transform is a general term for eﬀicient and fast computing methods for computing discrete Fourier transform (DFT) using a computer,
 referred to as FFT. The Fast Fourier Transform was proposed in 1965 by J.W.Cooley and T.W. Tukey
