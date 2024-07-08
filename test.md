@@ -13,6 +13,9 @@ The ImageProc benchmark suite includes a variety of image processing operations 
 | Text Skewness Correction      | ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)|
 | Watershed  | ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)|
 
+
+# Description
+
 ## Morphology Operation
 
 Morphology is a set of image processing operations that process images based on predefined structuring elements known also as kernels. The value of each pixel in the output image is based on a comparison of the corresponding pixel in the input image with its neighbors. By choosing the size and shape of the kernel, you can construct a morphological operation that is sensitive to specific shapes regarding the input image.
@@ -118,6 +121,11 @@ The watershed algorithm is used for image segmentation. It treats the image as a
 
 Smoothing reduces noise and small details in an image. Common techniques include Gaussian smoothing, median filtering, and average filtering.
 
+
+# References
+
+* [Image Processing Techniques](https://en.wikipedia.org/wiki/Digital_image_processing)
+* [OpenCV Documentation](https://docs.opencv.org/4.x/)
 
 
 
