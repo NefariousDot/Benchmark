@@ -56,13 +56,13 @@ Here we are applying the two very common morphology operators (i.e. Dilation and
 
 -   __Structuring Elements__: As it can be seen above and in general in any morphological operation the structuring element used to probe the input image, is the most important part.
 
-A structuring element is a matrix consisting of only 0's and 1's that can have any arbitrary shape and size. Typically are much smaller than the image being processed, while the pixels with values of 1 define the neighborhood. The center pixel of the structuring element, called the origin, identifies the pixel of interest -- the pixel being processed.
+    A structuring element is a matrix consisting of only 0's and 1's that can have any arbitrary shape and size. Typically are much smaller than the image being processed, while the pixels with values of 1 define the neighborhood. The center pixel of the structuring element, called the origin, identifies the pixel of interest -- the pixel being processed.
 
-For example, the following illustrates a diamond-shaped structuring element of 7x7 size.
+    For example, the following illustrates a diamond-shaped structuring element of 7x7 size.
 
-![A Diamond-Shaped Structuring Element and its Origin](img/morph12.gif)
+    ![A Diamond-Shaped Structuring Element and its Origin](img/morph12.gif)
 
-A structuring element can have many common shapes, such as lines, diamonds, disks, periodic lines, and circles and sizes. You typically choose a structuring element the same size and shape as the objects you want to process/extract in the input image. For example, to find lines in an image, create a linear structuring element as you will see later.
+    A structuring element can have many common shapes, such as lines, diamonds, disks, periodic lines, and circles and sizes. You typically choose a structuring element the same size and shape as the objects you want to process/extract in the input image. For example, to find lines in an image, create a linear structuring element as you will see later.
 
 ## Cloning
 
