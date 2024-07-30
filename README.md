@@ -9,7 +9,7 @@
 | Fibonacci Sequence      | ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)|
 | Matrix Multiplication   | ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)|
 | Fast Fourier Transform  | ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)|
-| Image Process           | ![Static Badge](https://img.shields.io/badge/TBA-%20Inprogress-%20orange)|
+| Image Process           | ![Static Badge](https://img.shields.io/badge/Test-%20Succeeded-%20green)|
 | Coremark Pro            | ![Static Badge](https://img.shields.io/badge/TBA-%20Inprogress-%20orange)| 
 | Passmark                | ![Static Badge](https://img.shields.io/badge/TBA-%20Inprogress-%20orange)|
 | Geekbench               | ![Static Badge](https://img.shields.io/badge/TBA-%20Inprogress-%20orange)|
